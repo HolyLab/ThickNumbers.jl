@@ -484,7 +484,11 @@ _norm(x::AbstractArray) = sqrt(sum(abs2, x))
 Returns `true` if `isless(hival(a), loval(b))`, `false` otherwise. See also [`≺`](@ref).
 """
 isless_tn(a::ThickNumber, b::ThickNumber) = isless(hival(a), loval(b))
+isless_tn(a::ThickNumber, b::Number) = isless(hival(a), b)
+isless_tn(a::Number, b::ThickNumber) = isless(a, loval(b))
 Base.isless(::ThickNumber, ::ThickNumber) = throw(FPTNException(isless, isless_tn))
+Base.isless(::ThickNumber, ::Number) = throw(FPTNException(isless, isless_tn))
+Base.isless(::Number, ::ThickNumber) = throw(FPTNException(isless, isless_tn))
 
 """
     a ≺ b
