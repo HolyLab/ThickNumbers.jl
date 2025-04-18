@@ -33,7 +33,7 @@ If possible, you should also define:
 If you cannot define this for your type (e.g., `MyType` requires more than two arguments to construct), it is likely that you'll have to specialize some of the [User API](@ref) functions for `MyType`, since the default implementations of some of them rely on `lohi`.
 
 There are also numerous optional methods you can specialize if it makes `MyType` operate more
-efficiently. For example, a gaussian random variable package might want to implement [`midrad(MyType{T}, center, σ)`](@ref) to construct values directly, assuming this is the natural parametrization
+efficiently. For example, a Gaussian random variable package might want to implement [`midrad(MyType{T}, center, σ)`](@ref) to construct values directly, assuming this is the natural parametrization
 of this type.
 
 ## Ensuring compliance with the ThickNumbers interface

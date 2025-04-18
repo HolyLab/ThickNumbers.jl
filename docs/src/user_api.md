@@ -13,7 +13,7 @@ valuetype
 
 ## Query functions
 
-API functions from the Interval Arithmetic Standard (IEEE Std 1788-2015), Table 9.2 are supported. One (deliberate) exception is `inf` and `sup`, which are replaced by [`loval`](@ref) and [`hival`](@ref): `inf` and `sup` have well-defined mathematical meanings that may not be appropriate for all `ThickNumber` subtypes (e.g., gaussian random variables don't have finite lower and upper bounds). If you are creating an interval arithmetic package, of course you can choose to define
+API functions from the Interval Arithmetic Standard (IEEE Std 1788-2015), Table 9.2 are supported. One (deliberate) exception is `inf` and `sup`, which are replaced by [`loval`](@ref) and [`hival`](@ref): `inf` and `sup` have well-defined mathematical meanings that may not be appropriate for all `ThickNumber` subtypes (e.g., Gaussian random variables don't have finite lower and upper bounds). If you are creating an interval arithmetic package, of course you can choose to define
 
 ```
 inf(x::MyInterval) = loval(x)

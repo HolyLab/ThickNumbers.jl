@@ -5,7 +5,7 @@ CurrentModule = ThickNumbers
 # ThickNumbers
 
 A `ThickNumber{T}` is an abstract type denoting objects that act like numbers--they have standard algebraic operations `+`, `-`, `*`, and `/`--but also
-have properties of a [connected set](https://en.wikipedia.org/wiki/Connected_space), specifically occupying some "width," e.g., a segment of the real number line. Examples of possible concrete subtypes include [intervals](https://en.wikipedia.org/wiki/Interval_arithmetic), [gaussian random variables](https://en.wikipedia.org/wiki/Algebra_of_random_variables), and potentially others. While the parameter `T` in `ThickNumber` does not necessarily have to be `T<:Real`, it should have an ordering so that "width" has some meaning.
+have properties of a [connected set](https://en.wikipedia.org/wiki/Connected_space), specifically occupying some "width," e.g., a segment of the real number line. Examples of possible concrete subtypes include [intervals](https://en.wikipedia.org/wiki/Interval_arithmetic), [Gaussian random variables](https://en.wikipedia.org/wiki/Algebra_of_random_variables), and potentially others. While the parameter `T` in `ThickNumber` does not necessarily have to be `T<:Real`, it should have an ordering so that "width" has some meaning.
 
 This documentation is aimed at:
 
@@ -47,7 +47,7 @@ Let `x` and `y` refer to a standard "point" numbers and `X` and `Y` correspondin
 
 With only a few exceptions, the names of these come from the Interval Arithmetic Standard (IEEE Std 1788-2015).
 
-- [`loval(X)`](@ref): return the "lower bound" (which may not be "fuzzy" for some ThickNumber subtypes) of `X` (similar to `inf` in the IEEE standard, but without promising the true infimum)
+- [`loval(X)`](@ref): return the "lower bound" of `X` (similar to `inf` in the IEEE standard, but without promising the true infimum: this is directed at types like Gaussian random variables which, strictly speaking, all have a infimum of -∞ but for which the bulk of the distribution has finite lower bound)
 - [`hival(X)`](@ref): return the "upper bound" of `X` (similar to `sup` in the IEEE standard)
 - [`mid(X)`](@ref): return the midpoint of `X`
 - [`wid(X)`](@ref): return the width (`hival - loval`) of `X`
