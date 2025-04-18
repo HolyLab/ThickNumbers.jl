@@ -15,6 +15,7 @@ end
 Interval(lo, hi) = Interval(promote(lo, hi)...)
 Interval{T}(iv::Interval) where T = Interval{T}(iv.lo, iv.hi)
 Interval{T}(x::Number) where T = Interval{T}(x, x)
+Interval{T}(nt::@NamedTuple{lo::T, hi::T}) where T = Interval{T}(nt.lo, nt.hi)   # needed by Mooncake
 
 ThickNumbers.loval(x::Interval) = x.lo
 ThickNumbers.hival(x::Interval) = x.hi

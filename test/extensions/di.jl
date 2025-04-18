@@ -1,6 +1,8 @@
 using ThickNumbers
 using DifferentiationInterface
 using ForwardDiff
+# using Enzyme: EnzymeCore
+using Mooncake
 
 using Test
 
@@ -12,7 +14,7 @@ using IntervalArith
     @test isempty(detect_ambiguities(ThickNumbers))
     @test isempty(detect_ambiguities(IntervalArith))
 
-    for backend in (AutoForwardDiff(), )
+    for backend in (AutoForwardDiff(), #=AutoEnzyme(mode=EnzymeCore.Forward), AutoEnzyme(mode=EnzymeCore.Reverse),=# AutoMooncake(config=nothing))
         a, b = Interval(1, 2), Interval(0, 0.1)
         f1(t) = a + t*b
         f2(x) = a + abs2(x)/2
