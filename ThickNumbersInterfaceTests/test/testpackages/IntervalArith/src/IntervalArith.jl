@@ -44,4 +44,6 @@ end
 Base.abs2(x::Interval) = Interval(mig(x)^2, mag(x)^2)
 Base.sqrt(x::Interval) = Interval(sqrt(loval(x)), sqrt(hival(x)))
 
+Base.conj(x::Interval{T}) where T = Interval{T}(conj(x.lo), conj(x.hi))   # needed for Enzyme
+
 end # module IntervalArith
